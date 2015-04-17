@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>timer</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		img{
+			height: 100px;
+			width: 100px;
+			
+		}
+		body{
+			color: black;
+			font-size: 80px;
+			margin: 0px;
+		}
+	</style>
+	
+
+
+</head>
+<body>
+	<img src="time/0.jpg">
+	<img src="time/0.jpg">点
+	<img src="time/0.jpg">
+	<img src="time/0.jpg">分
+	<img src="time/0.jpg">
+	<img src="time/0.jpg">秒<br>
+	
+</body>
+<script type="text/javascript">
+	window.onload=function()
+	{
+		
+		setInterval(updatetime,1000);
+		updatetime();
+		function updatetime()
+		{
+		var oimg=document.getElementsByTagName('img');
+		var otime=new Date();
+				function bw(num)
+			{
+				if(num<10)
+				{return "0"+num;}
+				else
+				{return num;}
+			}
+		
+		var str=" "+bw(otime.getHours())+bw(otime.getMinutes())+bw(otime.getSeconds());
+		
+		var arr=new Array();
+				for(i=0;i<oimg.length;i++)
+			{
+				arr[i]=str.charAt(i+1);//charAt()里面没有双引号
+			}
+
+			for (i=0;i<oimg.length;i++)
+			{
+				oimg[i].src="time/"+arr[i]+".jpg";//改变图片的src
+			}
+		}
+				
+	}
+
+
+</script>
+</html>
